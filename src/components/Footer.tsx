@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { SITE } from '../data/site';
 
 const QUICK_LINKS = [
-{ label: 'About Us', to: '/about' },
-{ label: 'Gallery', to: '/gallery' },
-{ label: 'Programs', to: '/coach' }];
-
+  { label: 'About Us', to: '/about' },
+  { label: 'Gallery', to: '/gallery' },
+  { label: 'Programs', to: '/coach' }
+];
 
 interface FooterProps {
   blurb?: string;
@@ -33,7 +33,6 @@ export function Footer({
                 rel="noreferrer"
                 aria-label="Whatsapp"
                 className="flex h-9 w-9 items-center justify-center text-ink/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-brand">
-                
                 <i className="bi bi-whatsapp text-[16px]" aria-hidden="true" />
               </a>
               <a
@@ -42,7 +41,6 @@ export function Footer({
                 rel="noreferrer"
                 aria-label="Instagram"
                 className="flex h-9 w-9 items-center justify-center text-ink/70 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-brand">
-                
                 <i className="bi bi-instagram text-[16px]" aria-hidden="true" />
               </a>
             </div>
@@ -53,13 +51,13 @@ export function Footer({
               Ping-Perfect
             </h2>
             <ul className="mt-6 space-y-3.5">
-              {QUICK_LINKS.map((link) =>
-              <li key={link.label}>
+              {QUICK_LINKS.map((link) => (
+                <li key={link.label}>
                   <Link to={link.to} className="link-underline text-sm text-body transition-colors hover:text-brand">
                     {link.label}
                   </Link>
                 </li>
-              )}
+              ))}
             </ul>
           </nav>
 
@@ -90,7 +88,6 @@ export function Footer({
             <Link
               to="/contact"
               className="mt-6 inline-flex items-center justify-center rounded border border-ink/30 px-6 py-2.5 text-[14px] font-medium uppercase tracking-[0.8px] text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white">
-              
               {ctaLabel}
             </Link>
           </div>
@@ -104,10 +101,18 @@ export function Footer({
             reserved.
           </p>
           <p>
-            Developed by <span className="font-semibold text-brand">{SITE.developer}</span>
+            Developed by{' '}
+            <a
+              href="https://www.mgraphixweb.site/"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-brand transition-colors hover:underline"
+            >
+              {SITE.developer}
+            </a>
           </p>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  );
 }
