@@ -1,0 +1,144 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+:root {
+  color-scheme: light;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  /* Matches --default-font on the live site */
+  font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #444444;
+  -webkit-font-smoothing: antialiased;
+}
+/* Matches --heading-font on the live site — every h1–h6 uses Lato, not the body font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', ui-sans-serif, system-ui, sans-serif;
+}
+/* Nav links and small UI chrome use --nav-font (Inter) on the live site */
+nav, .font-nav {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+/* Faint graph-paper grid used on the ecosystem microsite heroes */
+.grid-paper {
+  background-image: linear-gradient(to right, rgba(17, 24, 39, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+.placeholder-hatch {
+  background-image: linear-gradient(
+    135deg,
+    rgba(17, 24, 39, 0.045) 0,
+    rgba(17, 24, 39, 0.045) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+/* Green glow outline around the contact form card */
+.form-glow {
+  box-shadow: 0 0 0 1px rgba(57, 181, 74, 0.7), 0 0 26px 2px rgba(57, 181, 74, 0.35),
+    0 0 70px 10px rgba(57, 181, 74, 0.12);
+}
+
+/* --- Apple-style typography + motion ------------------------------------ */
+/* Optical sizing + tighter tracking on large type, the way Apple sets SF Pro Display */
+h1, h2, h3 {
+  letter-spacing: -0.012em;
+  word-spacing: 0.06em;
+  text-wrap: balance;
+}
+.font-thin-display { font-weight: 100; letter-spacing: -0.01em; }
+.font-light-display { font-weight: 300; letter-spacing: -0.012em; }
+/* Soft top-edge mask used by heading reveals so glyphs slide out of nothing */
+.type-mask { -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%); mask-image: linear-gradient(to bottom, transparent, #000 22%); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* --- Site-wide interaction polish --------------------------------------- */
+/* Every link, button and icon eases instead of snapping. */
+a, button, [role='button'] {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+a:active, button:active, [role='button']:active {
+  transform: scale(0.985);
+}
+/* Photos inside any rounded media frame drift in on hover. */
+.overflow-hidden > img {
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.overflow-hidden:hover > img {
+  transform: scale(1.05);
+}
+/* Content cards lift and deepen their shadow on hover. */
+section article,
+section .shadow-card {
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+section article:hover,
+section .shadow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px -18px rgba(17, 24, 39, 0.28);
+}
+/* Reusable helpers */
+.hover-lift { transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms ease; }
+.hover-lift:hover { transform: translateY(-3px); box-shadow: 0 16px 34px -16px rgba(17, 24, 39, 0.3); }
+.hover-grow { transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1); }
+.hover-grow:hover { transform: scale(1.04); }
+/* Animated underline for nav + inline links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background-color: #10ad54;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after,
+.link-underline[aria-current='page']::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+/* Keyframe helpers */
+@keyframes pp-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pp-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pp-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(16, 173, 84, 0.35); }
+  70% { box-shadow: 0 0 0 14px rgba(16, 173, 84, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 173, 84, 0); }
+}
+.animate-fade-up { animation: pp-fade-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-float { animation: pp-float 6s ease-in-out infinite; }
+.animate-pulse-ring { animation: pp-pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
