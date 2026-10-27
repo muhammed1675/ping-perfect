@@ -103,7 +103,7 @@ export function Footer({
           <p>
             Developed by{' '}
             <a
-              href="https://www.mgraphixweb.site/"
+              href="https://www.mgraphixweb.com.ng/"
               target="_blank"
               rel="noreferrer"
               className="font-semibold text-brand transition-colors hover:underline"
