@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { SiteLayout } from './components/SiteLayout';
 import { LoadingScreen } from './components/LoadingScreen';
+  import { RouteSeo } from './components/RouteSeo';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Gallery } from './pages/Gallery';
