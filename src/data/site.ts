@@ -15,7 +15,7 @@ export const SITE = {
 
 export const ECOSYSTEM_LINKS = [
 { label: 'Ping-Perfect', to: '/' },
-{ label: 'MGRAPHIX', to: 'https://www.mgraphixweb.site/' },
+{ label: 'MGRAPHIX', to: 'https://www.mgraphixweb.com.ng/' },
 { label: 'Inner Court', to: '/inner-court' },
 { label: 'CoachLab', to: '/coachlab' },
 { label: 'Academy', to: '/academy' }];
