@@ -6,10 +6,10 @@ export const SITE = {
   email: 'sport@ping-perfect.com',
   emailHref: 'mailto:sport@ping-perfect.com',
   whatsapp: 'https://wa.me/971586398728',
-  instagram: 'https://instagram.com',
+  instagram: 'https://www.instagram.com/ping.perfect?cplk=Y2FyMTR4NWNtd2Mw',
   facebook: 'https://facebook.com',
   linkedin: 'https://linkedin.com',
-  developer: 'MGRAPHIX',
+  developer: 'MGRAPHIX_WEB',
   year: 2026
 };
 
